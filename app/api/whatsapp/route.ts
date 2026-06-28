@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
 import twilio from 'twilio'
-import Anthropic from '@anthropic-ai/sdk'
+import OpenAI from 'openai'
 
-const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY! })
+const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY! })
 
 const SYSTEM = `Eres el asistente virtual de una notaría española. Atiendes por WhatsApp de forma profesional y cercana. Nunca das consejo jurídico. Tu objetivo: entender qué necesita el cliente, informar del proceso general, pedir los documentos básicos si aplica, y ofrecer cita. Tutea. Responde en máximo 3 frases. Español.`
 
@@ -39,13 +39,15 @@ export async function POST(req: Request) {
   const notariaNombre = notaria?.nombre ?? 'la notaría'
 
   // Generate AI reply
-  const msg = await anthropic.messages.create({
-    model: 'claude-sonnet-4-6',
+  const completion = await openai.chat.completions.create({
+    model: 'gpt-4o-mini',
     max_tokens: 200,
-    system: `${SYSTEM} Trabajas para ${notariaNombre}.`,
-    messages: [{ role: 'user', content: msgBody }],
+    messages: [
+      { role: 'system', content: `${SYSTEM} Trabajas para ${notariaNombre}.` },
+      { role: 'user', content: msgBody },
+    ],
   })
-  const reply = msg.content[0].type === 'text' ? msg.content[0].text : 'En breve te atendemos.'
+  const reply = completion.choices[0]?.message?.content ?? 'En breve te atendemos.'
 
   // Save lead if first contact
   if (notaria?.id) {
