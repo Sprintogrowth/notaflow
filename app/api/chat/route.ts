@@ -2,7 +2,7 @@ import OpenAI from 'openai'
 import { createClient } from '@/lib/supabase/server'
 import { NextResponse } from 'next/server'
 
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
+const getOpenAI = () => new OpenAI({ apiKey: process.env.OPENAI_API_KEY ?? 'placeholder' })
 
 const DEFAULT_SYSTEM = `Eres el asistente virtual de la Notaría Barceló i Associats en Barcelona. Atiendes consultas de clientes de forma profesional y cercana. Nunca das consejo jurídico. Tu objetivo: entender qué necesita, informar del proceso general, pedir los documentos básicos, ofrecer cita. Tutea. Máximo 2-3 frases. Español.`
 
@@ -14,7 +14,7 @@ export async function POST(req: Request) {
   const { messages, system, maxTokens } = await req.json()
 
   try {
-    const completion = await openai.chat.completions.create({
+    const completion = await getOpenAI().chat.completions.create({
       model: 'gpt-4o-mini',
       max_tokens: maxTokens ?? 300,
       messages: [

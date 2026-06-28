@@ -3,7 +3,7 @@ import { createClient } from '@/lib/supabase/server'
 import twilio from 'twilio'
 import OpenAI from 'openai'
 
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY! })
+const getOpenAI = () => new OpenAI({ apiKey: process.env.OPENAI_API_KEY ?? 'placeholder' })
 
 const SYSTEM = `Eres el asistente virtual de una notaría española. Atiendes por WhatsApp de forma profesional y cercana. Nunca das consejo jurídico. Tu objetivo: entender qué necesita el cliente, informar del proceso general, pedir los documentos básicos si aplica, y ofrecer cita. Tutea. Responde en máximo 3 frases. Español.`
 
@@ -39,7 +39,7 @@ export async function POST(req: Request) {
   const notariaNombre = notaria?.nombre ?? 'la notaría'
 
   // Generate AI reply
-  const completion = await openai.chat.completions.create({
+  const completion = await getOpenAI().chat.completions.create({
     model: 'gpt-4o-mini',
     max_tokens: 200,
     messages: [
