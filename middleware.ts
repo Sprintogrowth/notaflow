@@ -1,51 +1,49 @@
 import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 
-const PUBLIC_PATHS = ['/login', '/register', '/']
+const PUBLIC_PATHS = ['/', '/login', '/register']
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
-  // Static public paths — skip auth entirely
-  if (PUBLIC_PATHS.some(p => pathname === p)) {
-    return NextResponse.next({ request })
+  if (PUBLIC_PATHS.includes(pathname)) {
+    return NextResponse.next()
   }
 
-  let supabaseResponse = NextResponse.next({ request })
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 
-  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+  if (!supabaseUrl || !supabaseKey) {
     return NextResponse.redirect(new URL('/login', request.url))
   }
 
-  const supabase = createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
-    {
+  try {
+    let response = NextResponse.next({ request })
+
+    const supabase = createServerClient(supabaseUrl, supabaseKey, {
       cookies: {
         getAll() { return request.cookies.getAll() },
-        setAll(cookiesToSet: { name: string; value: string; options?: Record<string, unknown> }[]) {
-          cookiesToSet.forEach(({ name, value }) => request.cookies.set(name, value))
-          supabaseResponse = NextResponse.next({ request })
+        setAll(cookiesToSet) {
+          response = NextResponse.next({ request })
           cookiesToSet.forEach(({ name, value, options }) =>
-            supabaseResponse.cookies.set(name, value, options)
+            response.cookies.set(name, value, options)
           )
         },
       },
+    })
+
+    const { data: { user } } = await supabase.auth.getUser()
+
+    if (!user) {
+      return NextResponse.redirect(new URL('/login', request.url))
     }
-  )
 
-  const { data: { user } } = await supabase.auth.getUser()
-
-  if (!user) {
+    return response
+  } catch {
     return NextResponse.redirect(new URL('/login', request.url))
   }
-
-  return supabaseResponse
 }
 
 export const config = {
-  matcher: [
-    // Exclude static assets and all webhook/public API routes from middleware
-    '/((?!_next/static|_next/image|favicon.ico|api/chat|api/webhooks|api/whatsapp|api/retell/webhook|api/reminders/cron).*)',
-  ],
+  matcher: ['/((?!_next/static|_next/image|favicon.ico|api/).*)'],
 }
