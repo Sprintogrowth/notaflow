@@ -6,9 +6,9 @@ import { createClient } from '@/lib/supabase/client'
 import { C } from '@/lib/constants'
 
 const DEMO_USERS = [
-  { label: 'Super Admin', email: 'sonia@wonderworldgroup.com', password: 'wonderadmin2026' },
-  { label: 'Notario Titular', email: 'jordi@barcelo-notaria.es', password: 'notaflow2026' },
-  { label: 'Oficial', email: 'nuria@barcelo-notaria.es', password: 'oficial123' },
+  { label: 'Super Admin', email: 'sonia@wonderworldgroup.com', password: 'NotaFlow2024!' },
+  { label: 'Notario Titular', email: 'jordi@barcelo-notaria.es', password: 'NotaFlow2024!' },
+  { label: 'Oficial', email: 'nuria@barcelo-notaria.es', password: 'NotaFlow2024!' },
 ]
 
 export default function LoginPage() {
