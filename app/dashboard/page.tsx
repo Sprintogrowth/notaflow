@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import { useEffect, useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
@@ -43,7 +43,7 @@ export default function DashboardPage() {
           <span style={{fontSize:20}}>🎉</span>
           <div>
             <div style={{fontWeight:700,color:C.green,fontSize:13}}>¡Suscripción activada!</div>
-            <div style={{fontSize:12,color:C.green}}>Tu prueba gratuita de 14 días ha comenzado. Bienvenido a NotaFlow.</div>
+            <div style={{fontSize:12,color:C.green}}>Tu prueba gratuita de 14 días ha comenzado. Bienvenido a NotarioFlow.</div>
           </div>
         </div>
       )}

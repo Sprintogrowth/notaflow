@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
@@ -89,7 +89,7 @@ export default function SuperAdminPanel({ profile }: Props) {
         {tab === "resumen" && (
           <div>
             <div style={{ marginBottom:20 }}>
-              <div style={{ fontSize:20, fontWeight:700, color:"#fff", marginBottom:3 }}>👋 Hola, {profile.nombre.split(" ")[0]}. Estado de NotaFlow.</div>
+              <div style={{ fontSize:20, fontWeight:700, color:"#fff", marginBottom:3 }}>👋 Hola, {profile.nombre.split(" ")[0]}. Estado de NotarioFlow.</div>
               <div style={{ fontSize:12, color:"rgba(255,255,255,0.35)" }}>{new Date().toLocaleDateString("es-ES",{weekday:"long",day:"numeric",month:"long",year:"numeric"})}</div>
             </div>
             {/* KPI cards */}
@@ -259,7 +259,7 @@ export default function SuperAdminPanel({ profile }: Props) {
               <div style={{ flex:2, minWidth:300, background:"rgba(255,255,255,0.04)", border:"1px solid rgba(255,255,255,0.07)", borderRadius:12, padding:20 }}>
                 <div style={{ fontWeight:700, color:"#fff", marginBottom:14, fontSize:13 }}>Datos del producto</div>
                 {[
-                  ["Nombre","NotaFlow"],
+                  ["Nombre","NotarioFlow"],
                   ["Empresa","The Wonder World Group · CIF B56844384"],
                   ["Versión","MVP v4.0 — Junio 2026"],
                   ["Stack","Next.js 14 · Supabase · Claude API · Stripe"],

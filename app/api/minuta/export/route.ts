@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server'
+﻿import { NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
 import PizZip from 'pizzip'
 import Docxtemplater from 'docxtemplater'
@@ -34,7 +34,7 @@ export async function POST(req: Request) {
       NOTARIA_DIR:     notaria?.direccion ?? '',
       FECHA_EMISION:   fechaStr,
       HORA_EMISION:    horaStr,
-      AVISO_LEGAL:     'BORRADOR ORIENTATIVO — Documento generado por IA. Debe ser revisado, completado y autorizado por el notario titular antes de elevarlo a escritura pública. NotaFlow no asume responsabilidad jurídica sobre el contenido.',
+      AVISO_LEGAL:     'BORRADOR ORIENTATIVO — Documento generado por IA. Debe ser revisado, completado y autorizado por el notario titular antes de elevarlo a escritura pública. NotarioFlow no asume responsabilidad jurídica sobre el contenido.',
     })
 
     const buf = doc.getZip().generate({ type: 'arraybuffer', compression: 'DEFLATE' }) as ArrayBuffer

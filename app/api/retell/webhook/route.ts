@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server'
+﻿import { NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
 import { sendEmail } from '@/lib/resend'
 import { emailBase } from '@/lib/email/templates'
@@ -45,7 +45,7 @@ export async function POST(req: Request) {
           subject: `Resumen de llamada IA — ${new Date().toLocaleString('es-ES')}`,
           html: emailBase(`
             <h2>Resumen de llamada IA 📞</h2>
-            <p>Se ha completado una llamada automática de NotaFlow para <strong>${notariaNombre}</strong>.</p>
+            <p>Se ha completado una llamada automática de NotarioFlow para <strong>${notariaNombre}</strong>.</p>
             <div class="info-box">
               <div class="info-row"><span class="label">Duración</span><span class="value">${duration}s</span></div>
               <div class="info-row"><span class="label">Sentimiento</span><span class="value">${sentiment}</span></div>

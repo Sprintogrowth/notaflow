@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import { useState } from 'react'
 import Link from 'next/link'
 import { C, PLANES } from '@/lib/constants'
@@ -15,17 +15,17 @@ const features = [
 ]
 
 const testimonios = [
-  { nombre:"Jordi Barceló",      rol:"Notario titular · Barcelona", texto:"NotaFlow transformó nuestra notaría. Antes perdíamos leads en Instagram. Ahora el NotaBot los capta, les informa y agenda la cita. Hemos aumentado un 35% las escrituras mensuales.", ini:"JB", color:"#1B4FD8" },
+  { nombre:"Jordi Barceló",      rol:"Notario titular · Barcelona", texto:"NotarioFlow transformó nuestra notaría. Antes perdíamos leads en Instagram. Ahora el NotaBot los capta, les informa y agenda la cita. Hemos aumentado un 35% las escrituras mensuales.", ini:"JB", color:"#1B4FD8" },
   { nombre:"María Rodríguez",    rol:"Notaria titular · Madrid",    texto:"La calculadora del Modelo 600 nos ahorra 30 minutos por operación. Y las minutas de IA son un punto de partida excepcional para nuestros redactores.", ini:"MR", color:"#7C3AED" },
   { nombre:"Carme Puigdomènech", rol:"Oficial de notaría · Girona", texto:"Por fin tengo todo en un lugar: mis expedientes, la agenda, los leads. Ya no pierdo tiempo buscando en carpetas de correo.", ini:"CP", color:"#059669" },
 ]
 
 const faqs = [
   { q:"¿Cuánto tiempo tarda la configuración inicial?",   a:"Alta en 5 minutos. Sin instalación, sin IT. El onboarding guiado te lleva paso a paso." },
-  { q:"¿Funciona solo para Cataluña o para toda España?", a:"NotaFlow funciona para cualquier notaría española. El Modelo 600 ITP/AJD incluye la escala de Cataluña (actualizada con DL 5/2025)." },
+  { q:"¿Funciona solo para Cataluña o para toda España?", a:"NotarioFlow funciona para cualquier notaría española. El Modelo 600 ITP/AJD incluye la escala de Cataluña (actualizada con DL 5/2025)." },
   { q:"¿Puedo cancelar en cualquier momento?",            a:"Sí, sin permanencia ni penalizaciones. Si cancelas antes del próximo ciclo de facturación, no se realiza ningún cargo adicional." },
   { q:"¿El NotaBot reemplaza a mi equipo?",               a:"No, lo potencia. El agente IA atiende consultas rutinarias 24/7 para que tu equipo se centre en lo que aporta valor real." },
-  { q:"¿Está adaptado al Reglamento Notarial español?",  a:"Sí. Las minutas generadas por IA son borradores orientativos que siempre requieren revisión notarial. NotaFlow no ejerce ni asesora jurídicamente." },
+  { q:"¿Está adaptado al Reglamento Notarial español?",  a:"Sí. Las minutas generadas por IA son borradores orientativos que siempre requieren revisión notarial. NotarioFlow no ejerce ni asesora jurídicamente." },
   { q:"¿Qué pasa con mis datos?",                        a:"Alojamiento en servidores europeos (GDPR compliant). Supabase + SSL. En producción, 2FA activado para roles administrativos." },
 ]
 
@@ -60,7 +60,7 @@ export default function LandingPage() {
           <div style={{ flex:1, minWidth:320 }}>
             <div style={{ display:"inline-flex", alignItems:"center", gap:8, background:"rgba(255,255,255,0.12)", border:"1px solid rgba(255,255,255,0.2)", padding:"6px 16px", borderRadius:999, marginBottom:24 }}>
               <span style={{ width:7, height:7, borderRadius:"50%", background:"#4ADE80", display:"inline-block" }}/>
-              <span style={{ fontSize:12.5, color:"rgba(255,255,255,0.9)", fontWeight:600 }}>+127 notarías en España ya usan NotaFlow</span>
+              <span style={{ fontSize:12.5, color:"rgba(255,255,255,0.9)", fontWeight:600 }}>+127 notarías en España ya usan NotarioFlow</span>
             </div>
             <h1 style={{ fontSize:46, fontWeight:900, color:"#fff", lineHeight:1.1, marginBottom:20, letterSpacing:-1 }}>
               La plataforma<br/>
@@ -231,7 +231,7 @@ export default function LandingPage() {
       <section style={{ padding:"90px 5%", background:`linear-gradient(135deg,${C.primary},#4F46E5,#7C3AED)`, textAlign:"center" }}>
         <div style={{ maxWidth:700, margin:"0 auto" }}>
           <h2 style={{ fontSize:40, fontWeight:900, color:"#fff", letterSpacing:-1, marginBottom:16 }}>Tu notaría del siglo XXI empieza hoy</h2>
-          <p style={{ fontSize:17, color:"rgba(255,255,255,0.75)", marginBottom:36, lineHeight:1.6 }}>Únete a las 127 notarías que ya gestionan sus expedientes, leads y minutas con NotaFlow.</p>
+          <p style={{ fontSize:17, color:"rgba(255,255,255,0.75)", marginBottom:36, lineHeight:1.6 }}>Únete a las 127 notarías que ya gestionan sus expedientes, leads y minutas con NotarioFlow.</p>
           <div style={{ display:"flex", gap:14, justifyContent:"center", flexWrap:"wrap" }}>
             <Link href="/register" style={{ background:"#fff", color:C.primary, padding:"15px 36px", borderRadius:12, fontWeight:800, fontSize:16, textDecoration:"none", boxShadow:"0 8px 32px rgba(0,0,0,.2)" }}>Comenzar gratis — 14 días →</Link>
             <Link href="/login" style={{ background:"transparent", color:"#fff", border:"2px solid rgba(255,255,255,0.4)", padding:"15px 28px", borderRadius:12, fontWeight:700, fontSize:15, textDecoration:"none" }}>Ver demo</Link>
@@ -262,7 +262,7 @@ export default function LandingPage() {
             </div>
           </div>
           <div style={{ borderTop:"1px solid rgba(255,255,255,0.08)", paddingTop:20, display:"flex", justifyContent:"space-between", alignItems:"center", flexWrap:"wrap", gap:10, fontSize:12, color:"rgba(255,255,255,0.3)" }}>
-            <span>© 2026 NotaFlow · The Wonder World Group · Todos los derechos reservados</span>
+            <span>© 2026 NotarioFlow · The Wonder World Group · Todos los derechos reservados</span>
             <span>Hecho con ♥ en Barcelona 🇪🇸</span>
           </div>
         </div>

@@ -1,4 +1,4 @@
-export const FROM_EMAIL = 'NotaFlow <noreply@notaflow.es>'
+﻿export const FROM_EMAIL = 'NotarioFlow <noreply@notarioflow.es>'
 
 export async function sendEmail({ to, subject, html }: { to: string; subject: string; html: string }) {
   const res = await fetch('https://api.brevo.com/v3/smtp/email', {
@@ -8,7 +8,7 @@ export async function sendEmail({ to, subject, html }: { to: string; subject: st
       'content-type': 'application/json',
     },
     body: JSON.stringify({
-      sender: { name: 'NotaFlow', email: 'noreply@notaflow.es' },
+      sender: { name: 'NotarioFlow', email: 'noreply@notarioflow.es' },
       to: [{ email: to }],
       subject,
       htmlContent: html,

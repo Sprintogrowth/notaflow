@@ -1,4 +1,4 @@
-export function emailBase(content: string) {
+﻿export function emailBase(content: string) {
   return `<!DOCTYPE html>
 <html lang="es">
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -31,7 +31,7 @@ export function emailBase(content: string) {
     </div>
     <div class="body">${content}</div>
     <div class="footer">
-      NotaFlow · Sistema de gestión notarial · <a href="https://notaflow.es" style="color:#3b82f6">notaflow.es</a><br>
+      NotarioFlow · Sistema de gestión notarial · <a href="https://NotarioFlow.es" style="color:#3b82f6">NotarioFlow.es</a><br>
       Este email es automático. No respondas a este mensaje.
     </div>
   </div>
@@ -87,7 +87,7 @@ export function expedienteUpdateEmail({ nombre, expedienteId, tipo, estado, nota
 export function whatsappCitaReminder({ nombre, fecha, hora, tipo, notaria }: {
   nombre: string; fecha: string; hora: string; tipo: string; notaria: string
 }) {
-  return `⚖️ *NotaFlow — Recordatorio de cita*
+  return `⚖️ *NotarioFlow — Recordatorio de cita*
 
 Hola *${nombre}*, te recordamos que mañana tienes una cita:
 

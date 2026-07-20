@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
@@ -49,7 +49,7 @@ export default function LoginPage() {
 
       <div style={{background:C.white,borderRadius:16,padding:"36px 32px",width:"100%",maxWidth:420,boxShadow:"0 24px 64px rgba(0,0,0,0.4)"}}>
         <div style={{textAlign:"center" as const,marginBottom:28}}>
-          <div style={{fontSize:26,fontWeight:800,color:"#0a0f1e",letterSpacing:"-0.5px"}}>⚖️ NotaFlow</div>
+          <div style={{fontSize:26,fontWeight:800,color:"#0a0f1e",letterSpacing:"-0.5px"}}>⚖️ NotarioFlow</div>
           <div style={{fontSize:13,color:C.gray500,marginTop:4}}>Acceso al sistema de gestión notarial</div>
         </div>
 
