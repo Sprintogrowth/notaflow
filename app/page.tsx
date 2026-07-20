@@ -41,7 +41,7 @@ export default function LandingPage() {
       {/* NAV */}
       <nav style={{ position:"sticky", top:0, zIndex:100, background:"rgba(255,255,255,0.96)", backdropFilter:"blur(12px)", borderBottom:`1px solid ${C.border}`, padding:"0 5%" }}>
         <div style={{ display:"flex", alignItems:"center", height:64, maxWidth:1200, margin:"0 auto" }}>
-          <div style={{ fontSize:22, fontWeight:900, letterSpacing:.5, flex:1 }}>Nota<span style={{ color:C.primary }}>Flow</span></div>
+          <div style={{ fontSize:22, fontWeight:900, letterSpacing:.5, flex:1 }}>Notario<span style={{ color:C.primary }}>Flow</span></div>
           <div style={{ display:"flex", justifyContent:"center", gap:36, alignItems:"center", flex:2 }}>
             {[["Funcionalidades","features"],["Precios","precios"],["FAQ","faq"]].map(([l,s]) => (
               <span key={s} onClick={() => scrollTo(s)} style={{ fontSize:13.5, fontWeight:500, color:C.muted, cursor:"pointer" }}>{l}</span>
@@ -245,7 +245,7 @@ export default function LandingPage() {
         <div style={{ maxWidth:1100, margin:"0 auto" }}>
           <div style={{ display:"flex", gap:40, flexWrap:"wrap", marginBottom:40 }}>
             <div style={{ flex:2, minWidth:220 }}>
-              <div style={{ fontSize:24, fontWeight:900, color:"#fff", marginBottom:10 }}>Nota<span style={{ color:"#7DA8FF" }}>Flow</span></div>
+              <div style={{ fontSize:24, fontWeight:900, color:"#fff", marginBottom:10 }}>Notario<span style={{ color:"#7DA8FF" }}>Flow</span></div>
               <p style={{ fontSize:13, color:"rgba(255,255,255,0.4)", lineHeight:1.7, maxWidth:280 }}>La plataforma de gestión inteligente para notarías. Expedientes, IA, leads y mucho más.</p>
               <div style={{ marginTop:14, fontSize:12, color:"rgba(255,255,255,0.3)" }}>Desarrollado por <span style={{ color:"#7DA8FF", fontWeight:600 }}>The Wonder World Group</span></div>
             </div>

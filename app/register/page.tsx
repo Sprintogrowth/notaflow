@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
@@ -89,7 +89,7 @@ export default function RegisterPage() {
               style={{ background:"none", border:"none", cursor:"pointer", color:C.muted, fontSize:20, padding:0, lineHeight:1 }}>←</button>
           )}
           <div>
-            <div style={{ fontSize:16, fontWeight:700 }}>Nota<span style={{ color:C.primary }}>Flow</span> — Registro</div>
+            <div style={{ fontSize:16, fontWeight:700 }}>Notario<span style={{ color:C.primary }}>Flow</span> — Registro</div>
             {step < 4 && <div style={{ fontSize:11.5, color:C.muted }}>Paso {step} de 3</div>}
           </div>
         </div>
